@@ -1,0 +1,32 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <!-- <button onmouseout="document.getElementById('adfar').innerHTML='adfarrrr'">Click ME</button>
+        <p id="adfar"></p> -->
+        <!-- <input type="text" onkeyup="keydownevent()">
+        <script>
+            function keydownevent(){
+                alert('presses a key')
+            }
+        </script> -->
+        <h1>Adfar Rasheed</h1>
+        <p id="adfar">Blackbucks</p>
+        <button id="btn" onclick="" onmouseout="">Click Me</button>
+        <script>
+            const element1 = document.getElementById("btn")
+            element1.addEventListener("click",func1)
+            function func1(){
+                document.getElementById("adfar").innerHTML = "Gave you all"
+            } 
+            const element = document.getElementById("btn")
+            element.addEventListener("mouseout",func)
+            function func(){
+                document.getElementById("adfar").innerHTML = "Give me something"
+            }
+            console.log(element)
+            console.log(element1)
+        </script>
+    </body>
+</html>
