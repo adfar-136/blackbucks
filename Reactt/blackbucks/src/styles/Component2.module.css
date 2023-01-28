@@ -1,0 +1,12 @@
+.heading1{
+    color: orange;
+    background-color: gray;
+}
+.heading3{
+    border: 3px dotted red;
+}
+.container-div{
+    height: 300px;
+    width: 500px;
+    background-color: green;
+}
