@@ -1,24 +1,20 @@
-import React from 'react'
-import Adfar from './styles/Adfar'
-import Component1 from './styles/Component1'
-import Component2 from './styles/Component2'
-
-
+import React, { useState } from 'react'
 
 export default function App() {
-  
+  const [name, setname] = useState("")
+  const [password, setpassword] = useState("")
+  const handlesubmit=(e)=>{
+    e.preventDefault()
+    console.log(name)
+  console.log(password)
+  }
   return (
-    <>
-    {/* <div style={{height:"200px",width:"300px",backgroundColor:"gray"}}>
-      <h1 style={{color:"red",backgroundColor:"green"}}>Adfar Rasheed</h1>
-      <h3 style={{border:"2px solid red"}}>Blackbucks</h3>
-      
-    </div>
     <div>
-    <Adfar/>
-    </div> */}
-    <Component1/>
-    <Component2/>
-    </>
+      <form>
+        <input type="text" placeholder='Enter Name' value={name} onChange={(e)=>{setname(e.target.value)}}/>
+        <input type="password" placeholder='Enter password' value={password} onChange={(e)=>{setpassword(e.target.value)}}/>
+        <button onClick={(e)=>{handlesubmit(e)}}>Submit</button>
+      </form>
+    </div>
   )
 }

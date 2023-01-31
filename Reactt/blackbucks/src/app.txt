@@ -74,3 +74,119 @@ export default function App() {
     </div>
   )
 }
+
+
+
+import React from 'react'
+
+import Component1 from './styles/Component1'
+import Component2 from './styles/Component2'
+
+
+
+export default function App() {
+  
+  return (
+    <>
+    {/* <div style={{height:"200px",width:"300px",backgroundColor:"gray"}}>
+      <h1 style={{color:"red",backgroundColor:"green"}}>Adfar Rasheed</h1>
+      <h3 style={{border:"2px solid red"}}>Blackbucks</h3>
+      
+    </div>
+    <div>
+    <Adfar/>
+    </div> */}
+    <Component1/>
+    <Component2/>
+    </>
+  )
+}
+
+
+import React, { useEffect, useState } from 'react'
+
+export default function App() {
+  const [count,setcount] = useState(0)
+  const [number,setNumber] = useState(0)
+  const increment=()=>{
+    setcount(count+1)
+  }
+  const decrement =()=>{
+    setNumber(number - 1)
+  }
+  useEffect(()=>{
+    console.log("useEffect")
+  },[count,number])
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increment}>Count</button>
+      <h1>{number}</h1>
+      <button onClick={decrement}>Number</button>
+    </div>
+  )
+}
+
+
+
+import React, { useReducer } from 'react'
+const counterReducer = (state,action)=>{
+  if(action.type === "Adfar"){
+    return {
+      count : state.count + 1
+    }
+  }
+  else if(action.type === "Raj"){
+    return {
+      count : state.count -1
+    }
+  }
+  else if(action.type === "Pravilika"){
+    return {
+      count:state.count + 10
+    }
+  }
+  else if(action.type === "Are"){
+    return {
+      count:state.count-10
+    }
+  }
+  return state
+}
+export default function App() {
+  // const [first, setfirst] = useState(0)
+  const [state,dispatch] = useReducer(counterReducer,{count:0})
+  console.log(state)
+  return (
+    <div>
+      <h1>{state.count}</h1>
+      <button onClick={()=>{dispatch({type:"Adfar"})}}>Add one</button>
+      <button onClick={()=>{dispatch({type:"Raj"})}}>Minus one</button>
+      <button onClick={()=>{dispatch({type:"Pravilika"})}}>Add 10</button>
+      <button onClick={()=>{dispatch({type:"Are"})}}>Minus 10</button>
+      
+    </div>
+  )
+}
+
+
+import React, { useRef } from 'react'
+
+export default function App() {
+  const inputnameref = useRef()
+  const inputpasswordref = useRef()
+  const handlesubmit=(e)=>{
+    e.preventDefault()
+    console.log(inputnameref.current.value,inputpasswordref.current.value)
+  }
+  return (
+    <div>
+      <form>
+        <h2>Uncontrolled Components</h2>
+        <input type="text" placeholder='Enter Name' ref={inputnameref}/><br />
+        <input type="password" placeholder='Enter password' ref={inputpasswordref} />
+        <button onClick={(e)=>{handlesubmit(e)}}>Submit</button>
+      </form>
+    </div>
+  )
+}
