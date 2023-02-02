@@ -1,20 +1,38 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import GetQuote from './GetQuote'
+const mystyle={
+  padding:"10px 20px",
+  backgroundColor:"4caf50",
+  color:"red",
+  fontSize:"18px",
+  cursor:"pointer"
+}
+const mystyle1 = {
+  color:"white",
+  padding:"30px",
+  margin:"30px",
+  backgroundColor:"gray",
+  fontSize:"20px"
 
+}
 export default function App() {
-  const [name, setname] = useState("")
-  const [password, setpassword] = useState("")
-  const handlesubmit=(e)=>{
-    e.preventDefault()
-    console.log(name)
-  console.log(password)
+  const [joke,setJoke] = useState({})
+  const getJoke=async ()=>{
+    const res = await fetch("https://official-joke-api.appspot.com/random_joke")
+    const data = await res.json()
+    setJoke(data)
+  }
+  useEffect(()=>{
+    getJoke()
+  },[])
+  const handleclick =async()=>{
+    await getJoke()
   }
   return (
     <div>
-      <form>
-        <input type="text" placeholder='Enter Name' value={name} onChange={(e)=>{setname(e.target.value)}}/>
-        <input type="password" placeholder='Enter password' value={password} onChange={(e)=>{setpassword(e.target.value)}}/>
-        <button onClick={(e)=>{handlesubmit(e)}}>Submit</button>
-      </form>
+      <h1 style={mystyle1}>{joke.setup} ... {joke.punchline}</h1>
+      <button  style={mystyle1} onClick={handleclick}>Generate Joke</button>
+      <GetQuote/>
     </div>
   )
 }

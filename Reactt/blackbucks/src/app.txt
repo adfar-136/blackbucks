@@ -190,3 +190,70 @@ export default function App() {
     </div>
   )
 }
+
+
+import React, { useState } from 'react'
+
+export default function App() {
+  const [name, setname] = useState("")
+  const [password, setpassword] = useState("")
+  const handlesubmit=(e)=>{
+    e.preventDefault()
+    console.log(name)
+  console.log(password)
+  }
+  return (
+    <div>
+      <form>
+        <input type="text" placeholder='Enter Name' value={name} onChange={(e)=>{setname(e.target.value)}}/>
+        <input type="password" placeholder='Enter password' value={password} onChange={(e)=>{setpassword(e.target.value)}}/>
+        <button onClick={(e)=>{handlesubmit(e)}}>Submit</button>
+      </form>
+    </div>
+  )
+}
+
+
+import React, { useState } from 'react'
+
+export default function App() {
+  const [name,setName] = useState("")
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const [isLoggedin,setIsloggedin] = useState(false)
+  const login=()=>{
+    const userData={
+      name,
+      email,
+      password,
+    }
+    localStorage.setItem("userdata",JSON.stringify(userData))
+    setName("")
+    setEmail("")
+    setPassword("")
+    setIsloggedin(true)
+  }
+  const logout =()=>{
+    localStorage.removeItem("userdata")
+    setIsloggedin(false)
+  }
+  return (
+    <div>
+      {!isLoggedin? (
+        <form>
+        <input type="text" placeholder='Name' value={name} onChange={(e)=>{setName(e.target.value)}}/>
+        <input type="email" placeholder='Email' value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
+        <input type="password" placeholder='Password' value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+        <button onClick={()=>{login()}}>Go</button>
+        
+      </form>
+      ):(
+        <>
+         <h1>User is Logged In</h1>
+         <button onClick={logout}>Logout</button>
+        </>
+      )
+}
+    </div>
+  )
+}
