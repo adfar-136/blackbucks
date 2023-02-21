@@ -1,0 +1,53 @@
+const students = [{
+    "id": 1,
+    "first_name": "Ola",
+    "last_name": "Aronstam",
+    "email": "oaronstam0@apple.com"
+  }, {
+    "id": 2,
+    "first_name": "Imojean",
+    "last_name": "Forsdyke",
+    "email": "iforsdyke1@biblegateway.com"
+  }, {
+    "id": 3,
+    "first_name": "Saree",
+    "last_name": "Kleis",
+    "email": "skleis2@edublogs.org"
+  }, {
+    "id": 4,
+    "first_name": "Brunhilda",
+    "last_name": "Eringey",
+    "email": "beringey3@telegraph.co.uk"
+  }, {
+    "id": 5,
+    "first_name": "Sharleen",
+    "last_name": "Carr",
+    "email": "scarr4@oracle.com"
+  }, {
+    "id": 6,
+    "first_name": "Lucine",
+    "last_name": "Gonneau",
+    "email": "lgonneau5@hostgator.com"
+  }, {
+    "id": 7,
+    "first_name": "Jodee",
+    "last_name": "Gearty",
+    "email": "jgearty6@godaddy.com"
+  }, {
+    "id": 8,
+    "first_name": "Tiffy",
+    "last_name": "Krook",
+    "email": "tkrook7@state.gov"
+  }, {
+    "id": 9,
+    "first_name": "Roma",
+    "last_name": "Gerren",
+    "email": "rgerren8@163.com"
+  }, {
+    "id": 10,
+    "first_name": "Asa",
+    "last_name": "McGerr",
+    "email": "amcgerr9@unesco.org"
+  }]
+  module.exports = students
+  
